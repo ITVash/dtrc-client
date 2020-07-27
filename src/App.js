@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import { Switch, Route } from "react-router-dom"
+
+import { Admin } from "./pages"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Switch>
+			<Route exact path="/admin" component={Admin} />
+			<Route
+				exact
+				path="/"
+				render={() => <div className="App">Начало положено</div>}
+			/>
+		</Switch>
+	)
 }
 
-export default App;
+export default App
