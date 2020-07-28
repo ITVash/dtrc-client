@@ -1,0 +1,30 @@
+.categoryBox {
+  display: flex;
+  width: 100%;
+  padding: 25px 0;
+  flex-wrap: wrap;
+  h1 {
+    padding: 15px 0;
+    width: 100%;
+  }
+  .category, .new_category {
+    flex-basis: 50%;
+  }
+  .category {
+    padding: 0 10px;
+    ul {
+      li {
+        display: flex;
+        justify-content: space-between;
+        span {
+          button {
+            margin-right: 5px;
+          }
+          button:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}

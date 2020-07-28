@@ -22,12 +22,39 @@ header {
 	}
 	nav {
 		color: #8d8d8d;
-		li {
-			padding: 0 5px;
-		}
-		li:last-child {
-			padding: 0;
-			padding-left: 5px;
+		height: 100%;
+		ul {
+			height: 100%;
+			display: flex;
+			li {
+				span {
+					padding-right: 5px;
+				}
+				padding: 0 10px;
+				cursor: pointer;
+				font-weight: 500;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+				transition: all .3s;
+				border-bottom: 3px solid #121212;
+				user-select: none;
+				&.active {
+					color: lighten(#8d8d8d, 20%);
+					background-color: lighten(#121212, 5%);
+					border-bottom: 3px solid goldenrod;
+				}
+			}
+			li:hover {
+				color: lighten(#8d8d8d, 20%);
+				background-color: lighten(#121212, 5%);
+				border-bottom: 3px solid goldenrod;
+			}
+			li:last-child {
+				padding: 0;
+				padding-left: 10px;
+			}
 		}
 	}
 }

@@ -1,0 +1,11 @@
+[33mcommit d88f4225c9bcab04770fcedb4adb93534cfb53b0[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: ITVash <vash_dn@mail.ru>
+Date:   Mon Jul 27 13:11:45 2020 +0300
+
+    Начало разработки Админки
+
+[33mcommit 1ce7179d7e7956a0dd86c5881a406db0a3a85b40[m
+Author: ITVash <vash_dn@mail.ru>
+Date:   Mon Jul 27 11:20:37 2020 +0300
+
+    Initialize project using Create React App

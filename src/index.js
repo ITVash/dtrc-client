@@ -12,12 +12,12 @@ import store from "./redux/store"
 window.store = store
 
 ReactDOM.render(
-	<React.StrictMode>
+	<React.Fragment>
 		<Provider store={store}>
 			<Router>
 				<App />
 			</Router>
 		</Provider>
-	</React.StrictMode>,
+	</React.Fragment>,
 	document.getElementById("root"),
 )
