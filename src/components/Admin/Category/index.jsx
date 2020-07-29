@@ -2,6 +2,7 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Input, Button, Tooltip } from "antd"
+import { Helmet } from "react-helmet"
 import {
 	DeleteOutlined,
 	EditOutlined,
@@ -12,14 +13,27 @@ import { categoryActions } from "../../../redux/actions"
 
 import "./style.scss"
 
+let idEdit = null
 const Category = () => {
 	const [categorys, setCategorys] = React.useState("")
 	const [editor, setEditor] = React.useState(false)
 	const items = useSelector(({ category }) => category.items)
 	const dispatch = useDispatch()
-	const edit = (e) => {
-		setCategorys(e.target.value)
+	const edit = (id, e) => {
+		idEdit = id
+		setCategorys(e)
 		setEditor(true)
+		console.log("idEdit", idEdit)
+	}
+	const editObj = () => {
+		const obj = {
+			_id: idEdit,
+			title: categorys,
+		}
+		dispatch(categoryActions.uppList(obj))
+		setCategorys("")
+		idEdit = null
+		setEditor(false)
 	}
 	const addNew = () => {
 		const rand = Math.round(Math.random() * 1000)
@@ -36,6 +50,9 @@ const Category = () => {
 	}, [items, dispatch])
 	return (
 		<div className='categoryBox'>
+			<Helmet>
+				<title>Категории | (ТРЦ Донецк Сити)</title>
+			</Helmet>
 			<h1>
 				Ктегории{" "}
 				<Tooltip placement='right' title={text}>
@@ -50,7 +67,12 @@ const Category = () => {
 							<li key={index}>
 								{item.title}
 								<span>
-									<Button type='default' onClick={edit}>
+									<Button
+										type='default'
+										onClick={() => {
+											edit(item._id, item.title)
+										}}
+									>
 										<EditOutlined />
 									</Button>
 									<Button
@@ -82,11 +104,17 @@ const Category = () => {
 				<Input
 					value={categorys}
 					onChange={(e) => setCategorys(e.target.value)}
-					onPressEnter={addNew}
+					onPressEnter={() => (editor ? editObj() : addNew())}
 				/>{" "}
-				<Button type='ghost' onClick={addNew}>
-					Добавить
-				</Button>
+				{editor ? (
+					<Button type='ghost' onClick={editObj}>
+						Редактировать
+					</Button>
+				) : (
+					<Button type='ghost' onClick={addNew}>
+						Добавить
+					</Button>
+				)}
 			</div>
 		</div>
 	)

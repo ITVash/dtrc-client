@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet"
 import classNames from "classnames"
 /* import { Route, Switch } from "react-router-dom" */
 
-import { Header, Footer, Category } from "../components/Admin"
+import { Header, Footer, Category, News } from "../components/Admin"
 
 const Admin = () => {
 	const [type, setType] = React.useState("news")
@@ -61,7 +61,7 @@ const Admin = () => {
 				</div>
 				<div className='content'>
 					<div className='wrap'>
-						{type === "news" && <h1>Новости</h1>}
+						{type === "news" && <News />}
 						{type === "vote" && <h1>Голосование</h1>}
 						{type === "category" && <Category />}
 						{type === "gallery" && <h1>Галерея</h1>}
