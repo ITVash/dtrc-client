@@ -11,11 +11,11 @@ const Admin = () => {
 		<>
 			<Helmet>
 				<title>Панель Администратора | (ТРЦ Донецк Сити)</title>
-				<meta name='description' content='Панель администратора Донецк Сити' />
+				<meta name="description" content="Панель администратора Донецк Сити" />
 			</Helmet>
 			<Header />
 			<section>
-				<div className='sidebar'>
+				<div className="sidebar">
 					<ul>
 						<li
 							className={classNames({ active: type === "news" })}
@@ -59,8 +59,8 @@ const Admin = () => {
 						</li>
 					</ul>
 				</div>
-				<div className='content'>
-					<div className='wrap'>
+				<div className="content">
+					<div className="wrap">
 						{type === "news" && <News />}
 						{type === "vote" && <h1>Голосование</h1>}
 						{type === "category" && <Category />}
